@@ -6,7 +6,7 @@ import java.util.Arrays;
  */
 public class ArrayUtility <K>{K[] inputArray;
 
-    public ArrayUtility(K[] inputArray){this.inputArray = inputArray;}
+    ArrayUtility(K[] inputArray){this.inputArray = inputArray;}
 
     ArrayList<K>mergedArray = new ArrayList<>();
 
@@ -18,7 +18,18 @@ public class ArrayUtility <K>{K[] inputArray;
         return count;
     }
 
-    public K getMostCommonFromMerge(K[] arrayToMerge) {return null;}
+    public K getMostCommonFromMerge(K[] arrayToMerge) {
+        int maxCount = 0;
+        int count = 0;
+        K mostCommon = null;
+        for (K v: inputArray) {
+            count = countDuplicatesInMerge(arrayToMerge,v);
+            if(count>maxCount) {
+                maxCount = count;
+                mostCommon = v;
+            }
+        }return mostCommon;
+    }
 
     public int getNumberOfOccurrences(K valueToEvaluate) {
         int count = 0;
@@ -35,5 +46,6 @@ public class ArrayUtility <K>{K[] inputArray;
         }
         K[]array=Arrays.copyOf(inputArray,list.size());
         for (int i = 0; i < array.length; i++) array[i] = list.get(i);
-        return array;}
+        return array;
+    }
 }
