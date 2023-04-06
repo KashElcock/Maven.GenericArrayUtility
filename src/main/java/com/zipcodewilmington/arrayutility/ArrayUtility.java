@@ -4,7 +4,9 @@ import java.util.Arrays;
 /**
  * Created by leon on 3/6/18.
  */
-public class ArrayUtility <K>{K[] inputArray;
+public class ArrayUtility <K>{
+    
+    K[] inputArray;
 
     ArrayUtility(K[] inputArray){this.inputArray = inputArray;}
 
@@ -52,9 +54,7 @@ public class ArrayUtility <K>{K[] inputArray;
     public K[] removeValue(K valueToRemove) {
         ArrayList<K>list = new ArrayList<>(Arrays.asList(inputArray));
         list.removeIf(val -> val == valueToRemove);
-        K[]array=Arrays.copyOf(inputArray,list.size());
-        for (int i = 0; i < array.length; i++) array[i] = list.get(i);
-        return array;
+        return list.toArray(Arrays.copyOf(inputArray,list.size()));
     }
 
 
