@@ -5,7 +5,7 @@ import java.util.Arrays;
  * Created by leon on 3/6/18.
  */
 public class ArrayUtility <K>{
-    
+
     K[] inputArray;
 
     ArrayUtility(K[] inputArray){this.inputArray = inputArray;}
@@ -38,19 +38,7 @@ public class ArrayUtility <K>{
         for(K val : inputArray ) if ((val == valueToEvaluate))count++;
         return count;
     }
-//    public K[] removeValue(K valueToRemove) {
-//        ArrayList<K>list = new ArrayList<>(Arrays.asList(inputArray));
-//        for (int i = 0; i < list.size(); i++) {
-//            if(list.get(i)==valueToRemove){
-//                list.remove(i);
-//                i-=1;
-//            }
-//        }
-//        K[]array=Arrays.copyOf(inputArray,list.size());
-//        for (int i = 0; i < array.length; i++) array[i] = list.get(i);
-//        return array;
-//    }
-    //rewrite this method using streams and lambdas
+
     public K[] removeValue(K valueToRemove) {
         ArrayList<K>list = new ArrayList<>(Arrays.asList(inputArray));
         list.removeIf(val -> val == valueToRemove);
